@@ -11,10 +11,11 @@
         <style type="text/css">
         #myCalendarContainer .dropdownContainer {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             width: 100%;
-            align-items: flex-start;
-            justify-content: center;
+            flex-wrap:wrap;
+            align-items: baseline;
+            justify-content: flex-start;
             font-family: 'Trebuchet MS', Helvetica, sans-serif;
             border: 2px solid #C6CFE6;
             padding: 10px;
@@ -26,11 +27,13 @@
             margin: 0px 0px 3px 0px;
         }
 
+
         #myCalendarContainer .dropdownContainer .dropdownInfo {
             display: flex;
             flex-direction: column;
-            margin: 2px 0px 6px 0px;
-            max-width: 600px;
+            margin: 2px 20px 6px 0px;
+            max-width: 400px;
+
         }
 
         #myCalendarContainer .dropdownContainer .dropdownInfo .infoLabel {
@@ -42,6 +45,7 @@
         }
         </style>
         <div class="dropdownContainer">
+            <!-- <div id="dropdownHeader"><h2>Select</h2></div> -->
             <div class="dropdownInfo">
                 <p class="infoLabel">Select Faculty / Staff / Resident: </p>
                 <select id="myCalendarId">
