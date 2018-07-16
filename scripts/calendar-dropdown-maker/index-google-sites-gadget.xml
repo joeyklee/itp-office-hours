@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="ITPOffice Hours" title_url="https://sites.google.com/a/itp.nyu.edu/help/in-person/office-hours"
+          description="calendar dropdown"
+          height="600" width="100%" author="Google">
+    <Require feature="dynamic-height"/>
+  </ModulePrefs>
+  <UserPref name="iframeURL" display_name="URL to content" required="true"/>
+  <UserPref name="scroll" display_name="Display scrollbar" default_value="auto" datatype="enum">
+    <EnumValue value="auto" display_value="Automatic"/>
+    <EnumValue value="no" display_value="No"/>
+    <EnumValue value="yes" display_value="Yes"/>
+  </UserPref>
+  <Content type="html" view="default,canvas">
+  <div id="myCalendarContainer">
+      <style type="text/css">
+      #myCalendarContainer .dropdownContainer {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          flex-wrap:wrap;
+          align-items: baseline;
+          justify-content: flex-start;
+          font-family: 'Trebuchet MS', Helvetica, sans-serif;
+          border: 2px solid #C6CFE6;
+          padding: 10px;
+          margin-bottom: 2px;
+          box-sizing: border-box;
+      }
+
+      #myCalendarContainer .dropdownHeader{
+          width:100%;
+          height:26px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          background-color:#C6CFE6;
+          font-family: 'Trebuchet MS', Helvetica, sans-serif;
+          padding:4px 0px 4px 10px;
+          box-sizing: border-box;
+          color:white;
+      }
+
+      #myCalendarContainer .dropdownContainer p {
+          margin: 0px 0px 3px 0px;
+      }
+
+
+      #myCalendarContainer .dropdownContainer .dropdownInfo {
+          display: flex;
+          flex-direction: column;
+          margin: 2px 20px 6px 0px;
+          max-width: 400px;
+
+      }
+
+      #myCalendarContainer .dropdownContainer .dropdownInfo .infoLabel {
+          font-size: 12px;
+      }
+
+      #myCalendarContainer .dropdownContainer .dropdownInfo .infoLabel span {
+          font-size: 14px;
+      }
+      </style>
+      <div class="dropdownHeader"> <small>Browse For Expertise</small></div>
+      <div class="dropdownContainer">    
+          <div class="dropdownInfo">
+              <p class="infoLabel">Select Faculty / Staff / Resident: </p>
+              <select id="myCalendarId">
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU1ZTDlfZXMyLXk1fGRlZmF1bHR8NDg2NTQ4NmIyOThmYzA0YTA4NzE5ZGUzNDIxY2IwYTk" data-specialties="Commlab, Pop up Windows, Video Sculpture, Thesis" data-email="gabebc@nyu.edu" data-similar="Sarah Rothberg, Nikita Huggins, Aaron Montoya-Moraga">Gabe Barcia-Colombo</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUIwa28zVlNxWTdzfGRlZmF1bHR8OGJmN2RkYWQ2MjBiZGJhNGIyNjNjOTMzMWQ5MDAzNzU" data-specialties="Food, Senses, Climate Change, Science, Immersive Environments, Biology, Site-Specific, Social Engagement, Video" data-email="stefanib@nyu.edu" data-similar="Katherine Dillon, Su Hyun Kim, Allison Parrish, Sarah Rothberg, Sam Slover, Gregory Trefry, Michelle Hessel Alves, Lisa Jamhoury, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Stefani Bardin</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU52Q3lmT0VkVVFNfGRlZmF1bHR8ODU5NzA3ZTRiOTliNjljMzU3MTIwNjY1ZjMwZjdkMmE" data-specialties="Virtual Reality, Motion Capture, Projection Mapping, Experiential Installation, Project Management, Conceptual Development" data-email="tjb387@nyu.edu" data-similar="Luke DuBois, Claire Kearney-Volpe, Su Hyun Kim, Andrew Lazarow, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Shawn Van Every, Yuli Cai, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Parsekian">Todd Bryant</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUI2T2ZBRDJqcmNlfGRlZmF1bHR8NWVmNTA1YjE1ZjU1YzBmOTljODgwZjc0MjU0YTdjOT&amp;amp;pli=1" data-specialties="" data-email="animishmish@gmail.com" data-similar="">Alon Chitayat</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUZCdzlfUkYwaVlKfGRlZmF1bHR8MmFlZDdhZGIzZGY2N2IxZjhhOTVkMjBjZDBiZjI5YTI" target="_blank" data-specialties="Contemporary Art, Alternative Education, Accessibility and Inclusion, Race and Identity Politics" data-email="trc6@nyu.edu" data-similar="Gregory Trefry, Mathura Govindarajan, David Lockard">Taeyoon Choi</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUVkMnpYbG5kTWF5fGRlZmF1bHR8OGNlODBkZmFjMTY4MDgxMDU2NGU2MWUyZWI0MDZlYjY" data-specialties="Visual Language, UX Design, Thesis" data-email="katherine.dillon@nyu.edu" data-similar="Stefani Bardin, Luke DuBois, Su Hyun Kim, Allison Parrish, Sam Slover, Gregory Trefry, Lisa Jamhoury, David Lockard, Aaron Parsekian">Katherine Dillon</option>
+                  <option value="" data-specialties="Interactive sound, video performance, installation, music production, visual language" data-email="rd64@nyu.edu" data-similar="Todd Bryant, Katherine Dillon, Su Hyun Kim, Andrew Lazarow, Allison Parrish, Sarah Rothberg, Daniel Rozin, Sam Slover, Gregory Trefry, Yuli Cai, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Chino Kim, David Lockard, Aaron Parsekian">Luke DuBois</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUd4c2wxRDM0V2VXfGRlZmF1bHR8ZDdiZWMwYWU0NWU5MWVlMGU2NmM1M2RiNWEyMjBmZjg" data-specialties="" data-email="jeff.feddersen@nyu.edu" data-similar="">Jeff Feddersen</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU9fd0kzRW1pTEM0fGRlZmF1bHR8ZmQ2ODIwMGE4NzY1OWUxNzU1ZWNiNDdmOWIyNjhjMzM" data-specialties="Applications/Performed Identities, Cabinet of Wonders/Thesis/General" data-email="nancy.hechinger@nyu.edu" data-similar="">Nancy Hechinger</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUwtNnZGbl9ISFpifGRlZmF1bHR8NzBjNTYyYTE3ZjNiZjY5MmVhNTk4M2NmZjI0NGE4NTc" data-specialties="Phys comp, net objects, sustainability" data-email="tom.igoe@nyu.edu" data-similar="Dan O'Sullivan, Edwin Reed-Sanchez, Jason Beck, Mathura Govindarajan, Nikita Huggins, Chino Kim, Aaron Parsekian">Tom Igoe</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU10VjBabmJpYkRJfGRlZmF1bHR8ODQ5M2QzNGNhNWJjZmQwYjIxZDE2M2E2MzMwYjdmMzc" data-specialties="Human-centered design, user testing, assistive/rehab technology, accessible development" data-email="claire.kv@nyu.edu" data-similar="Todd Bryant, Andrew Lazarow, Allison Parrish, Marianne Petit, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Shawn Van Every, Jason Beck, Yuli Cai, Mathura Govindarajan, Nikita Huggins, Lisa Jamhoury, Jen Kagan">Claire Kearney-Volpe</option>
+                  <option value="" data-specialties="Visual, User Experience, Product Design" data-email="shk479@nyu.edu" data-similar="Stefani Bardin, Todd Bryant, Katherine Dillon, Luke DuBois, Andrew Lazarow, Allison Parrish, Sam Slover, Gregory Trefry, Yuli Cai, Michelle Hessel Alves, Lisa Jamhoury, David Lockard, Aaron Parsekian">Su Hyun Kim</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUJjd182VklGYVlRfGRlZmF1bHR8Y2E5NDJlM2QyMmJiNDcwZDI0YzIyNGY1ZDdkOWIxZGY" data-specialties="python, web scraping, javascript, command line" data-email="splavigne@gmail.com" data-similar="Sam Slover, Shawn Van Every, Mimi Yin, Yuli Cai, Leon Eckert, Nikita Huggins, Jen Kagan, Chino Kim, Aaron Montoya-Moraga">Sam Lavigne</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUFoNm52WDFDU3dFfGRlZmF1bHR8ZWQ4MTRmYmFiZjcyODhhODNiMmNiYjVmZDZmMjg4Nzg" data-specialties="Concepts, writing, projection mapping, live-performance, optical illusion, processing, OpenFrameworks" data-email="ajl443@nyu.edu" data-similar="Todd Bryant, Luke DuBois, Claire Kearney-Volpe, Su Hyun Kim, Allison Parrish, Sarah Rothberg, Daniel Rozin, Shawn Van Every, Yuli Cai, Hannah Davis, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, Aaron Montoya-Moraga">Andrew Lazarow</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UURwa2ZyUjlibzRafGRlZmF1bHR8N2RmMmU2YjdjZDc5ZDQ5OGViMzU1N2Q3MGUyMjI1NjI" data-specialties="" data-email="bl1236@nyu.edu" data-similar="">Ben Light</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUxjel9URkpMUnRffGRlZmF1bHR8ZWZlOTUwOGNlNDQ3NTI3M2Y4MWU2ZTM5ZTAwYzJhMjI" data-specialties="Soft Goods, wearables, practical prototyping, theatrical costuming, space exploration technology" data-email="raburabusensei@gmail.com" data-similar="">Kari Love</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UVBlTFZhOVNCTmF0fGRlZmF1bHR8MmU2NTM4NjJmOTJiNTUwM2M0YTBmMzcyZDM4NjRkNmQ" data-specialties="Physical computing, programming" data-email="dan.osullivan@nyu.edu" data-similar="Tom Igoe, Edwin Reed-Sanchez, Shawn Van Every, Jason Beck, Leon Eckert, Mathura Govindarajan, Nikita Huggins, Chino Kim, Aaron Parsekian">Dan O'Sullivan</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UVBPem9ZRFh0NmxvfGRlZmF1bHR8MmNjMGMxNmNiMDNjN2ZmNWQwMmJhMDg3ZTQ3Y2ZmNWI" data-specialties="General ICM/p5.js help, Processing, Python, natural language processing, web development, data analysis, databases, game design" data-email="aparrish@nyu.edu" data-similar="Stefani Bardin, Todd Bryant, Katherine Dillon, Luke DuBois, Claire Kearney-Volpe, Su Hyun Kim, Andrew Lazarow, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Gregory Trefry, Shawn Van Every, Yuli Cai, Hannah Davis, Mathura Govindarajan, Nikita Huggins, Lisa Jamhoury, Jen Kagan, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Allison Parrish</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUM2bEp1S3oyOWFZfGRlZmF1bHR8YTVmNmM3N2M1ZDNmNmEzZGMyZmUxOThhOWZmZjM2NTA" data-specialties="Storytelling, Papercraft, Animation, Assistive Technology" data-email="marianne.petit@nyu.edu" data-similar="Claire Kearney-Volpe, Sarah Rothberg, Shawn Van Every, Jason Beck, Chino Kim, David Lockard">Marianne Petit</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUtrN2U2d1RsdDEwfGRlZmF1bHR8NjlhZTM2Y2NkM2U5MjU0OWM4ZDA5ODA0ZTg1YTdlMzI" data-specialties="Phys comp, GSM Infrastructure (Towers of Power), Non-profit and business development" data-email="elr210@nyu.edu" data-similar="Todd Bryant, Tom Igoe, Claire Kearney-Volpe, Dan O'Sullivan, Allison Parrish, Sarah Rothberg, Daniel Rozin, Jason Beck, Yuli Cai, Mathura Govindarajan, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, Aaron Parsekian">Edwin Reed-Sanchez</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUdONjBsUVVJMUVDfGRlZmF1bHR8ZTA1NTY5MjUwYTYzNzdlMWUwYzQ1MmJhM2U5MmQyNGU" data-specialties="Virtual Reality, Unity3d, UX, Animation, Video, Sound, Concept Development, Installation / Experience Design, Digital Humanities" data-email="ser406@nyu.edu" data-similar="Gabe Barcia-Colombo, Stefani Bardin, Todd Bryant, Luke DuBois, Claire Kearney-Volpe, Andrew Lazarow, Allison Parrish, Marianne Petit, Edwin Reed-Sanchez, Daniel Rozin, Shawn Van Every, Yuli Cai, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Sarah Rothberg</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUk5ekpNTVhYY3dXfGRlZmF1bHR8MjliYTQ4ZDQ1MWNlMzNiOTA5MzAwNzE5NzNlNDQ5MGQ" data-specialties="Interactive digital art, Project Development Studio, The World-Pixel by Pixel, Designing for Digital Fabrication" data-email="dr99@nyu.edu" data-similar="Todd Bryant, Luke DuBois, Claire Kearney-Volpe, Andrew Lazarow, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Shawn Van Every, Yuli Cai, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Parsekian">Daniel Rozin</option>
+                  <option value="https://itp.nyu.edu/inwiki/Signup/Shiffman" data-specialties="ICM Instructor" data-email="daniel.shiffman@nyu.edu" data-similar="">Daniel Shiffman</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUtad0RGeVgzU0pxfGRlZmF1bHR8MzE4NGE0MjVkOTZkY2RjMTdmMmE2ZDlmYTRhMjcyMWY" data-specialties="Javascript, Data Visualization, Node.js, MongoDB, Express.js, Graphic Design, p5.js" data-email="slover@nyu.edu" data-similar="Stefani Bardin, Katherine Dillon, Luke DuBois, Su Hyun Kim, Sam Lavigne, Allison Parrish, Gregory Trefry, Shawn Van Every, Mimi Yin, Jason Beck, Yuli Cai, Leon Eckert, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Sam Slover</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU1TTEpYV1dvYjlufGRlZmF1bHR8ZWY3NDVlNGMyYzgzMzE0ZjU3NTRiYWMyZGI0YTEzNGY" data-specialties="Game Design, Experience Design, Kids Media, Educational Games" data-email="gtrefry@giganticmechanic.com" data-similar="Stefani Bardin, Taeyoon Choi, Katherine Dillon, Luke DuBois, Su Hyun Kim, Allison Parrish, Sam Slover, Lisa Jamhoury, David Lockard, Aaron Parsekian">Gregory Trefry</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UURiM21GUFRTUjFLfGRlZmF1bHR8NTJhYjQ3M2JmODJhNDVjMTY3YTQ3MTMzMjA0MzI4N2Y" data-specialties="Ideas, concepts, theory, networks, servers, mobile, web programming, Node.js, JavaScript, Java, p5.js, p5.js serial, Android, Bluetooth, PhoneGap, streaming, WebRTC, and WebSockets" data-email="shawn.van.every@nyu.edu" data-similar="Todd Bryant, Claire Kearney-Volpe, Sam Lavigne, Andrew Lazarow, Dan O'Sullivan, Allison Parrish, Marianne Petit, Sarah Rothberg, Daniel Rozin, Sam Slover, Mimi Yin, Jason Beck, Yuli Cai, Leon Eckert, Mathura Govindarajan, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Montoya-Moraga">Shawn Van Every</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUwyRlNGejliMUxLfGRlZmF1bHR8MTI2NGIyZTNkNDA5MzZhMmU1N2VlZDY5NWJjNmYyMzg" data-specialties="ICM, Big Screens, Web front-end" data-email="mimi.yin@nyu.edu" data-similar="Sam Lavigne, Sam Slover, Shawn Van Every, Yuli Cai, Leon Eckert, Jen Kagan, Chino Kim, Aaron Montoya-Moraga">Mimi Yin</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUNDaGlzdFdSUUVifGRlZmF1bHR8N2ExMWZlOTJiMjg5MDFhMjhiMDA2MDhlYTFkNGYwZDI" data-specialties="assistive technology, physical computing, and node.js" data-email="jason.beck@nyu.edu" data-similar="Tom Igoe, Claire Kearney-Volpe, Dan O'Sullivan, Marianne Petit, Edwin Reed-Sanchez, Sam Slover, Shawn Van Every, Yuli Cai, Leon Eckert, Mathura Govindarajan, Nikita Huggins, Chino Kim, Aaron Parsekian">Jason Beck</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUpZX085NjhSTTF6fGRlZmF1bHR8MmI1ZjM4YmVmN2M2ODg1ODdhMmMyOGI3MzFiODUwNzU" data-specialties="PComp (Arduino / Circuitry / PCB), Javascript, Shader, ThreeJS, Processing, Cinder, HTML/CSS, Node, Max/MSP, Kinect, Projection/Camera, Fabrication >> Art Installation, Live Performance, Concept Development" data-email="yuli.cai@nyu.edu" data-similar="Todd Bryant, Luke DuBois, Claire Kearney-Volpe, Su Hyun Kim, Sam Lavigne, Andrew Lazarow, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Shawn Van Every, Mimi Yin, Jason Beck, Hannah Davis, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Yuli Cai</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUZoQjJnV3BlVEZsfGRlZmF1bHR8NzczMmJkYWNkYTEyOWFjZDRlZDJmODZjMmI0NDNjNjI" data-specialties="Generative music, machine learning, python, natural language processing, sentiment analysis, twitter bots" data-email="hannah.davis@nyu.edu" data-similar="Andrew Lazarow, Allison Parrish, Yuli Cai, Aaron Montoya-Moraga">Hannah Davis</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUxaaTFlelg3TWJNfGRlZmF1bHR8OTUzMmNmN2M4NTQ5OTBiMmNhYzBkZjdiNDFhOGRlYzQ" data-specialties="Programming (ICM, p5js, Python, JavaScript, Node, Live Web, HTML, CSS, Arduino, Raspberry Pi), Networks, Privacy and Surveillance related things, The Hand Router, NeoPixels, Foosball, any worries you may have" data-email="leon.eckert@nyu.edu" data-similar="Sam Lavigne, Dan O'Sullivan, Sam Slover, Shawn Van Every, Mimi Yin, Jason Beck, Yuli Cai, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, Aaron Montoya-Moraga, Aaron Parsekian">Leon Eckert</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUx4ckpFWUNub2FUfGRlZmF1bHR8M2NjMjQ5YmM5MzA3N2Y0NWZiMDU2OWExYjQxZjFiZjg" data-specialties="" data-email="jje271@nyu.edu" data-similar="">Juan Jose Egusquiza</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUtvSW5ielpDVGRafGRlZmF1bHR8NzRlNTQwOGY4NTQ1ZjZiNDVmMTE4OWI1ZTUxNjc4YjY" data-specialties="Programming(JavaScript/HTML/CSS/C++/React/p5.js/Processing/Node/Basic Ruby), Accessibility in code, Physical Computing, Fabrication (3D printing, wood turning, wood work, laser cutting), Origami, Illustrator, Concept Development" data-email="mmg542@nyu.edu" data-similar="Todd Bryant, Taeyoon Choi, Luke DuBois, Tom Igoe, Claire Kearney-Volpe, Andrew Lazarow, Dan O'Sullivan, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Shawn Van Every, Jason Beck, Yuli Cai, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Parsekian">Mathura Govindarajan</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUhWSjVLR0NhNE84fGRlZmF1bHR8YTI5OTg0YjdkMGE5ZTEwY2JiNDU5Nzc0M2U4NGU1NDU" data-specialties="Unity, Virtual Reality, Augmented Reality, 3D Scanning, 3D printing, Unreal Engine, UX (Photoshop, Illustrator, Sketch), Video (Camera, Premiere, After Effects), Projection Mapping, Wood Work, Installation, Fabrication, Fungus stuff" data-email="michelle.hessel@nyu.edu" data-similar="Stefani Bardin, Todd Bryant, Luke DuBois, Su Hyun Kim, Andrew Lazarow, Sarah Rothberg, Daniel Rozin, Yuli Cai, Mathura Govindarajan, Nikita Huggins, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Parsekian">Michelle Hessel Alves</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUZOd2pSX3FHQm8yfGRlZmF1bHR8ODAwNWZiYWQ5NGJmYjM1MTRjMjVlMGE0N2E5NTY2ZjI" data-specialties="Physical Computing, Arduino, Installations, Fabrication, HTML/CSS, Web Dev, MadMapper, Node.js, Concept Development, Constructive Critical Feedback, Project Development&amp; Management, some MAX/MSP, Premiere Pro, Paper Mechanisms, ITP Teacher Corps, Diversity, Storytelling, Culture, Food Systems, NIME" data-email="nikita.huggins@nyu.edu" data-similar="Gabe Barcia-Colombo, Todd Bryant, Luke DuBois, Tom Igoe, Claire Kearney-Volpe, Sam Lavigne, Andrew Lazarow, Dan O'Sullivan, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Shawn Van Every, Jason Beck, Yuli Cai, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Lisa Jamhoury, Jen Kagan, Chino Kim, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Nikita Huggins</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUlFdHBUdGtNZlpEfGRlZmF1bHR8NGM3YjcyZWMxYWNkZDc1M2YxMTE5MjFjNWU5ODVkMjY" data-specialties="Programming/Creative Coding/ICM (Processing/Javascript/p5/ThreeJS), Kinect, Kinectron, Body scanning (skanect), Motion Capture, Web sockets, Peer Networks, Project Development, Live Performance, Rigging, Movement, Body sensors, Github, Social impact/NGO communications, Websites, Wordpress, Projection" data-email="lisajamhoury@gmail.com" data-similar="Stefani Bardin, Todd Bryant, Katherine Dillon, Luke DuBois, Claire Kearney-Volpe, Su Hyun Kim, Andrew Lazarow, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Gregory Trefry, Shawn Van Every, Yuli Cai, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Jen Kagan, Chino Kim, David Lockard, Aaron Parsekian">Lisa Jamhoury</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUdoNnllNnVHLUg1fGRlZmF1bHR8ZmIyNjQxMDEwNThlYzIzOTZmZWNiODhiYTA5ZDUyNjk" data-specialties="concept development, writing, GitHub, front-end Javascript, p5.js web editor bugs" data-email="kaganjd@gmail.com" data-similar="Todd Bryant, Claire Kearney-Volpe, Sam Lavigne, Andrew Lazarow, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Shawn Van Every, Mimi Yin, Yuli Cai, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Chino Kim, Aaron Montoya-Moraga">Jen Kagan</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UU1lVk93a0VpWHBWfGRlZmF1bHR8MDJlMzc4ZDUwZThlMTBjYzdmOTMyNDE5YWIwMTUyM2I" data-specialties="Physical Computing, Arduino, Fabrication, PCB Fabrication, ICM, p5.js, HTML/CSS/Javascript, Node.js, Chrome Extensions, Python, Max/MSP, Github, Linux/Unix Command Line, Asterisk, Web Hosting, Computer Networking, Ideation, Feedback, Troubleshooting, Skateboarding, Bike Commuting, Climbing, Foosball, Taking Breaks, Eating" data-email="chino@nyu.edu" data-similar="Todd Bryant, Luke DuBois, Tom Igoe, Sam Lavigne, Andrew Lazarow, Dan O'Sullivan, Marianne Petit, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Shawn Van Every, Mimi Yin, Jason Beck, Yuli Cai, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Jen Kagan, David Lockard, Aaron Montoya-Moraga, Aaron Parsekian">Chino Kim</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUp6YWVldzcwN0pDfGRlZmF1bHR8YTE1YzRhYmU2ZWM4NDkyMmZmYjVmZTQ5NmQ5NDNlMmU" data-specialties="Design and communication, fabrication, journalism, structure and drama, playful pedagogy, video and animation, papercraft, politics, game design, 360 video, no holds barred critique." data-email="davidlockard@gmail.com" data-similar="Stefani Bardin, Todd Bryant, Taeyoon Choi, Katherine Dillon, Luke DuBois, Su Hyun Kim, Allison Parrish, Marianne Petit, Sarah Rothberg, Daniel Rozin, Sam Slover, Gregory Trefry, Shawn Van Every, Yuli Cai, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Chino Kim, Aaron Parsekian">David Lockard</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UVAwZjVrNFBLLVhSfGRlZmF1bHR8NjliNWQzODQ2OGM2MzBkMDU1OTk4ZTEyOTY5ZjQxMjA" data-specialties="ICM, Comm Lab Sound, NIME, Immersive Listening, p5.js, Processing, Max/MSP, Puredata, Python, JavaScript, GitHub, audio recording, audio mixing" data-email="montoyamoraga@nyu.edu" data-similar="Gabe Barcia-Colombo, Stefani Bardin, Sam Lavigne, Andrew Lazarow, Allison Parrish, Sarah Rothberg, Sam Slover, Shawn Van Every, Mimi Yin, Yuli Cai, Hannah Davis, Leon Eckert, Nikita Huggins, Jen Kagan, Chino Kim">Aaron Montoya-Moraga</option>
+                  <option value="https://calendar.google.com/calendar/selfsched?sstoken=UUFJUFQ5TnE2djhjfGRlZmF1bHR8YjkyZWI2MjU3MDg1MjAzZGM3YTliMjBkOTE3YzU3YzQ" data-specialties="Physical Computing, sensor design, electronic circuits, soldering, vectorworks 2018, lighting design, LED tape, LED pixels, Projection Design &amp; projection systems, fabrication" data-email="aaron.parsekian@nyu.edu" data-similar="Stefani Bardin, Todd Bryant, Katherine Dillon, Luke DuBois, Tom Igoe, Su Hyun Kim, Dan O'Sullivan, Allison Parrish, Edwin Reed-Sanchez, Sarah Rothberg, Daniel Rozin, Sam Slover, Gregory Trefry, Jason Beck, Yuli Cai, Leon Eckert, Mathura Govindarajan, Michelle Hessel Alves, Nikita Huggins, Lisa Jamhoury, Chino Kim, David Lockard">Aaron Parsekian</option>
+              </select>
+          </div>
+          <div class="dropdownInfo">
+              <p class="infoLabel">Ask me about:</p> <span id="myCalendarSpecialties"></span>
+          </div>
+          <div class="dropdownInfo">
+              <p class="infoLabel">Get in touch:</p> <span id="myCalendarContact"></span>
+          </div>
+          <div class="dropdownInfo">
+              <p class="infoLabel">You might also reach out to:</p> <span id="myCalendarSimilar"></span>
+          </div>
+      </div>
+      <div class="dropdownHeader"> <small>Search for an available appointment</small></div>
+      <iframe id="myCalendarIframe" src="" width="100%" height="480px" frameBorder="0" style="border:2px solid #C6CFE6; box-sizing: border-box"></iframe>
+  </div>
+  <script type="text/javascript">
+  gadgets.util.registerOnLoadHandler(doRender);
+
+  function doRender(){
+    (function() {
+
+        const Main = (function() {
+            let myCalendar, myCalendarIframe, myCalendarSpecialties, myCalendarContact, myCalendarSimilar;
+
+            const init = function() {
+                getElements();
+                attachListeners();
+
+                /*initialize with current value*/
+                myCalendarIframe.src = myCalendar.value;
+                myCalendarSpecialties.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.specialties
+                myCalendarContact.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.email
+                myCalendarSimilar.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.similar
+            }
+
+            function getElements() {
+                myCalendar = document.querySelector("#myCalendarId");
+                myCalendarIframe = document.querySelector("#myCalendarIframe");
+                myCalendarSpecialties = document.querySelector("#myCalendarSpecialties")
+                myCalendarContact = document.querySelector("#myCalendarContact")
+                myCalendarSimilar = document.querySelector("#myCalendarSimilar")
+            }
+
+            function applyStyles() {
+                // .setAttribute("style", "color: blue, margin-top:5px");
+            }
+
+            function attachListeners() {
+                myCalendar.addEventListener("change", function(e) {
+                    e.preventDefault();
+                    // set the value for the dropdown
+                    myCalendarIframe.src = e.target.value;
+                    // set the value for the specialities
+                    myCalendarSpecialties.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.specialties
+                    // set the value for the email
+                    myCalendarContact.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.email
+                    // set value similar people
+                    myCalendarSimilar.innerHTML = myCalendar.options[myCalendar.selectedIndex].dataset.similar
+
+                })
+            }
+
+            return {
+                init: init
+            }
+        })();
+
+        Main.init();
+
+    })();
+  }
+  </script>
+  </Content>
+</Module>
