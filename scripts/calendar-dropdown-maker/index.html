@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+    <style type="text/css">
+        #myCalendarContainer{
+            width: 100%;
+            height:100%;
+        }
+    </style>
     <div id="myCalendarContainer">
         <style type="text/css">
         #myCalendarContainer .dropdownContainer {
@@ -57,18 +64,40 @@
             font-size: 14px;
         }
 
-        #myCalendarContainer #iframeWrapper{
+        #myCalendarContainer #myCalendarIframeWrapper{
           -webkit-overflow-scrolling: touch;
-          overflow:auto;
+          overflow-y:auto;
           width:100%;
-          height:600px;
           box-sizing: border-box;
-          position:relative;
-          top:0;
-          left:0;
-          right:0;
-          bottom:0;
+          border:2px solid #C6CFE6;
+          /*padding-bottom:40%;*/
+          position: relative;
+          height:100%;
+          max-height:620px;
         }
+        #myCalendarContainer #myCalendarIframeWrapper iframe{
+          width:100%;
+          height:580px;
+          position: absolute;
+          top:0;
+          left: 0;
+
+        }
+
+        @media (max-width: 480px )  {
+            #myCalendarContainer #myCalendarIframeWrapper iframe {
+                min-width:480px;
+            }
+        }
+
+        @media (min-width: 680px )  {
+            #myCalendarContainer #myCalendarIframeWrapper iframe {
+                max-width: 100%;
+            }
+        }
+
+
+
         </style>
         <div class="dropdownHeader"> <small>Browse For Expertise</small></div>
         <div class="dropdownContainer">    
@@ -129,19 +158,25 @@
             </div>
         </div>
         <div class="dropdownHeader"> <small>Log in with your NYU email <a href="https://accounts.google.com/signin/v2/identifier?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">to see/book appointments</a></small></div>
-        <div id="iframeWrapper">
-            <iframe id="myCalendarIframe" src="" scrolling="yes" width="100%" height="600px" frameBorder="0" style="border:2px solid #C6CFE6; box-sizing: border-box;position: absolute;top: 0;bottom: 0;left: 0;right: 0;"></iframe>
+        <div id="myCalendarIframeWrapper">
+            <iframe id="myCalendarIframe" src="" scrolling="yes" frameBorder="0"></iframe>
         </div>
+
     </div>
     <script type="text/javascript">
     (function() {
 
         const Main = (function() {
-            let myCalendar, myCalendarIframe, myCalendarSpecialties, myCalendarContact, myCalendarSimilar;
+            let myCalendar, myCalendarIframe, myCalendarIframeWrapper, myCalendarSpecialties, myCalendarContact, myCalendarSimilar;
 
             const init = function() {
                 getElements();
                 attachListeners();
+
+                /*set w/h of iframe based on wrapper*/
+                // let w = myCalendarIframeWrapper.offsetWidth
+                // console.log(w)
+                // myCalendarIframe.setAttribute("style", `width:${w}`)
 
                 /*initialize with current value*/
                 myCalendarIframe.src = myCalendar.value;
@@ -153,6 +188,7 @@
             function getElements() {
                 myCalendar = document.querySelector("#myCalendarId");
                 myCalendarIframe = document.querySelector("#myCalendarIframe");
+                myCalendarIframeWrapper = document.querySelector("#myCalendarIframeWrapper");
                 myCalendarSpecialties = document.querySelector("#myCalendarSpecialties")
                 myCalendarContact = document.querySelector("#myCalendarContact")
                 myCalendarSimilar = document.querySelector("#myCalendarSimilar")
@@ -176,6 +212,7 @@
 
                 })
             }
+
 
             return {
                 init: init
