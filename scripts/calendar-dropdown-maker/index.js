@@ -5,7 +5,7 @@ const stringSimilarity = require('string-similarity');
 /**
 @ Read in data and parse it
 */
-const data = fs.readFileSync("data/office-hour-calendar-20180711.csv").toString()
+const data = fs.readFileSync("data/office-hour-calendar-20180918.csv").toString()
 let calendar = d3.csvParse(data);
 // turn skills in to array
 calendar.forEach(person => {
@@ -19,12 +19,12 @@ calendar.forEach(person => {
 */
 function getUniqueSpecialties(calendar){
 	let specialties = [];
-	
+
 	calendar.forEach(person => {
 		if(person.specialties){
-			specialties.push(person.specialties);	
+			specialties.push(person.specialties);
 		}
-		
+
 	})
 	specialties = specialties.reduce(function(prev, curr) {
 	  return prev.concat(curr);
@@ -79,12 +79,12 @@ function clusterSpecialties(specialtySimilarityObject){
 			})
 			group.sort()
 			group = Array.from(new Set(group))
-			if(group.length > 0) clusters.push(group);	
+			if(group.length > 0) clusters.push(group);
 		}
-		
+
 
 	})
-	
+
 	clusters.sort()
 
 	return clusters
@@ -96,12 +96,12 @@ function clusterSpecialties(specialtySimilarityObject){
 /**
 @ clusterPeopleBySkills()
 @ determine the similarity of each person based on the number of shared skills they have
-@ 
+@
 */
 function clusterPeopleBySkills(calendar, clusteredSpecialties){
 	let newCalendar = calendar.slice(0);
 
-	
+
 	newCalendar.forEach(person => {
 		// add a new property "similarStaff"
 		person.similarStaff = [];
@@ -124,11 +124,11 @@ function clusterPeopleBySkills(calendar, clusteredSpecialties){
 	// for each person
 	// go through each of their skills
 	// for each of their skills
-	// check if they share any common skills, 
+	// check if they share any common skills,
 	// if so, add them to the current person's list
 	newCalendar.forEach( (person1, pos1, arr1) => {
 
-		
+
 		arr1.forEach( (person2, pos2, arr2) => {
 				if(person1.name !== person2.name){
 					let addPerson = false;
@@ -176,14 +176,14 @@ function createDropdown(people){
 	})
 
 	return `<select id="myCalendarId">${options.join('')}</select>`
-	
+
 }
 createDropdown(newCalendar)
 
 
 
 // Write to file
-fs.writeFile("calendarDropdown.html", createDropdown(calendar).toString(), function(err, data){
+fs.writeFile("calendarDropdown-20180918.html", createDropdown(calendar).toString(), function(err, data){
 	if(err) return err
 	console.log("done!")
 } )
